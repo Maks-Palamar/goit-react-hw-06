@@ -1,5 +1,15 @@
 import { Formik, Form, Field } from 'formik';
-const SearchBox = ({value, onChange}) => {
+// import searchContact from '../../redux/contactsSlice/contactsSlice';
+import { searchContact } from '../../redux/contactsSlice/filterSlice';
+import { useDispatch } from 'react-redux';
+const SearchBox = ({ value }) => {
+
+    const dispatch = useDispatch();
+
+    const onChange = (value) => {
+        dispatch(searchContact(value))
+    }
+    
     return (
         <>
         <div>
